@@ -23,7 +23,7 @@
                       <ul class="navbar-nav m-auto mb-2 mb-lg-0">
 
                           <li class="nav-item">
-                              <a class="nav-link active" >Home</a>
+                              <a class="nav-link active" th:href="@{/user/home_p}" >Home</a>
                           </li>
 
                           <li class="nav-item">
@@ -51,9 +51,9 @@
                         <h3>LOGIN</h3>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form th:action="@{/user/login}" method = "Post">
 
-                            <div class="form-group" th:action="@{/user/home_p}">
+                            <div class="form-group" >
                                 <label for="text">UserName:</label>
                                 <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter username" name="username">
                             </div>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.pcsale.dto.ProductDTO;
+import com.example.pcsale.model.Cart;
 import com.example.pcsale.bl.CustomerService;
 
 
@@ -19,6 +20,7 @@ import com.example.pcsale.bl.CustomerService;
 public class ProductController {
     @Autowired
     private CustomerService cs;
+
     @GetMapping("/user/brand")
     public String showBrandList(
         @RequestParam("brand") String brand,
@@ -51,20 +53,12 @@ public class ProductController {
         return "login";
     }
 
-    @GetMapping("/user/add_to_cart")
-    public String addToCart() {
+    @GetMapping("/user/shop")
+    public String addToCart(String brand,String name) {
 
+       
         return "cart";
     }
-    @GetMapping("/user/checkout")
-    public String checkoutPage() {
 
-        return "checkout";
-    }
-    @GetMapping("/user/confirm_pay")
-    public String confirmPayment() {
-
-        return "payment_result";
-    }
 
 }

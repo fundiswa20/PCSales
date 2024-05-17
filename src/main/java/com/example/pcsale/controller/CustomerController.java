@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.pcsale.bl.CustomerService;
 import com.example.pcsale.model.Address;
 import com.example.pcsale.model.Card;
+import com.example.pcsale.model.Cart;
 import com.example.pcsale.model.Customer;
 
 
@@ -48,7 +49,8 @@ public class CustomerController implements Serializable{
         // userService.addCustomer(name, surname, id, username, password);
         Card card = new Card();
         Address adr = new Address();
-        Customer customer = new Customer(name,surname,id,username,password,card,adr);
+        Cart cart = new Cart();
+        Customer customer = new Customer(name,surname,id,username,password,cart,card,adr);
         cs.addCustomer(customer);
         // Redirect to a success page or any other appropriate page
         return "redirect:/user/customer_login";
@@ -67,22 +69,32 @@ public class CustomerController implements Serializable{
             Model model
     ) {
         // Retrieve user from the database based on the provided username
-        Customer user = cs.findByUsername(username);
+        Boolean isFound = cs.findByUsername(username, password);
 
         // Check if the user exists and if the provided password matches the stored password
-        if (user != null && user.getPassword().equals(password)) {
-            // User exists and password matches, login successful
-            // You can store user details in the session or set up authentication as per your application requirements
-            // For now, let's just print the success message
+        if (isFound ) {
+
             System.out.println("Login successful for user: " + username);
 
             // Redirect the user to the home page or any other appropriate page
-            return "redirect:/user/home_p";
+            return "homepage2";
         } else {
-            // User does not exist or password does not match, login failed
-            // You can handle this by showing an error message to the user
+
             model.addAttribute("error", "Invalid username or password");
             return "login_page"; // Redirect the user back to the login page with an error message
         }
     }
+
+
+    @GetMapping("/user/checkout")
+    public String checkoutPage() {
+
+        return "checkout";
+    }
+    @GetMapping("/user/confirm_pay")
+    public String confirmPayment() {
+
+        return "payment_result";
+    }
+
 }

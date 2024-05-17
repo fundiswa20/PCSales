@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.pcsale.dto.ProductDTO;
+import com.example.pcsale.model.Cart;
 import com.example.pcsale.model.Customer;
 import com.example.pcsale.model.Laptop;
+import com.example.pcsale.repository.CartRepository;
 import com.example.pcsale.repository.CustomerRepository;
 import com.example.pcsale.repository.LapTopRepository;
 
@@ -19,6 +21,9 @@ public class CustomerService {
     private LapTopRepository laptopRepo;
     @Autowired
     private CustomerRepository customerRepo;
+
+    @Autowired
+    private CartRepository cartRepo;
 
     public List<ProductDTO> getProduct(String brand)
     {
@@ -39,8 +44,27 @@ public class CustomerService {
         customerRepo.save(customer);
     }
 
-    public Customer findByUsername(String username) {
+    public Boolean findByUsername(String username,String password) {
+        List<Customer> list = customerRepo.findAll();
+
+
+        for (Customer customer : list) {
+
+            if(customer.getUsername().equals(username) && customer.getPassword().equals(password))
+            {
+                return true;
+            }
+
+        }
+
         //Customer customer = customerRepository.findByUsername(username);
+        return false;
+    }
+
+    public Cart addToCart(String brand,String name)
+    {
+        Cart cart = cartRepo.findById(1L).orElse(new Cart());
+
         return null;
     }
 
