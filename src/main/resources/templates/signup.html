@@ -1,94 +1,94 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        .navbar-brand{
-            font-size: 2rem;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            color: balck;
-
-        }
-        .navbar-brand:hover{
-            color: black;
-
-        }
-        .nav-link{
-            margin-right: 10px;
-            margin-left: 10px;
-            color: black;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            text-transform: uppercase;
+{% comment %}
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .navbar-brand{
+                font-size: 2rem;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                color: balck;
+    
+            }
+            .navbar-brand:hover{
+                color: black;
+    
+            }
+            .nav-link{
+                margin-right: 10px;
+                margin-left: 10px;
+                color: black;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                text-transform: uppercase;
+            }
+            .nav-link:hover{
+                color: black;
+            }
+            .search{
+                height: 40px;
+                width: 80%;
+                border-radius: 60px;
+                outline:none;
+                margin-right: -35px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                border: 2px solid green;
+    
+            }
+            .btn0{
+                height: 40px;
+                width: 40%;
+                outline: none;
+                border:none;
+                background-color: green;
+                color: white;
+                border-radius:60px ;
+                font-weight: 700;
+    
+    
+            }
+            .main{ 
+            height: 100vh;
+            background-position: 50% 50%;
+            width: 100%;
+    
             
-
         }
-        .nav-link:hover{
-            color: black;
-        }
-        .search{
-            height: 40px;
-            width: 80%;
-            border-radius: 60px;
-            outline:none;
-            margin-right: -35px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            border: 2px solid green;
-
-        }
-        .btn0{
-            height: 40px;
-            width: 40%;
-            outline: none;
-            border:none;
-            background-color: green;
-            color: white;
-            border-radius:60px ;
+        .main h1{font-size: 4rem;
             font-weight: 700;
-
-
+            
         }
-        .main{ 
-        height: 100vh;
-        background-position: 50% 50%;
-        width: 100%;
-
-        
-    }
-    .main h1{font-size: 4rem;
+       .btn1{
+        height: 50px;
+        width: 75px;
+        border: none;
+        outline: none;
+        background-color: green;
         font-weight: 700;
-        
-    }
-   .btn1{
-    height: 50px;
-    width: 75px;
-    border: none;
-    outline: none;
-    background-color: green;
-    font-weight: 700;
-    color: white;
-    border-radius: 60px;
-
-} 
-    #landing-page{
-        background-image: url('./nordwood-themes-kRNZiGKtz48-unsplash.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    </style>
+        color: white;
+        border-radius: 60px;
+    
+    } 
+        #landing-page{
+            background-image: url('./nordwood-themes-kRNZiGKtz48-unsplash.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        </style>
+{% endcomment %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Signup Page</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -103,37 +103,33 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active"  href="#">Home</a>
-                </li>
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
 
-                <li class="nav-item">
-                  <a class="nav-link" href="shop.html">Shop</a>
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="Customer Service">Customer Service</a>
-                  
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="Login.html">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="SignUp.html">Sign-Up</a>
-                </li>
-                <li>
-                  
-                </li>
-              </ul>
-              
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/user/home}">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/user/customer_serv}">Customer Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/user/customer_login}">Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" th:href="@{/user/customer_signup}">Sign-Up</a>
+                      </li>
+                      <li>
+                        <i class="bi bi-person-circle"></i>
+                      </li>
+
+                </ul>
+
             </div>
       </nav>
     </div>
 
     <section class="main">
 
-  
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -142,30 +138,30 @@
                             <h3>SIGN UP</h3>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form th:action="@{/user/add_customer}" method="POST">
                                 <div class="form-group">
-                                    <label for="email">Name:</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter name">
+                                    <label for="text">Name:</label>
+                                    <input type="text" class="form-control" id="text" aria-describedby="text" placeholder="Enter name" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Surname:</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter surname">
+                                    <label for="text">Surname:</label>
+                                    <input type="text" class="form-control" id="text" aria-describedby="text" placeholder="Enter surname" name="surname">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">ID:</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Id">
+                                    <label for="text">ID:</label>
+                                    <input type="text" class="form-control" id="text" aria-describedby="text" placeholder="Enter Id" name="id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">UserName:</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter username">
+                                    <label for="text">UserName:</label>
+                                    <input type="text" class="form-control" id="text" aria-describedby="text" placeholder="Enter username" name="username">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Confirmation Password:</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="password">
+                                    <label for="password">Confirmation Password:</label>
+                                    <input type="password" class="form-control" id="confpass" aria-describedby="confpass" placeholder="password" name="confirmPassword">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block">SUBMIT</button>
                             </form>

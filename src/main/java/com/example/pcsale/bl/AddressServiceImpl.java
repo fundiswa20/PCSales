@@ -3,22 +3,18 @@ package com.example.pcsale.bl;
 import com.example.pcsale.repository.AddressRepository;
 import com.example.pcsale.model.Address;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Service;
 
 @Service
 
-public class AddressServiceImpl implements AddressService {
+public class AddressServiceImpl implements Serializable {
 
-    private final AddressRepository addressRepository;
+    private  AddressRepository addressRepository;
 
-    public AddressServiceImpl(AddressRepository addressRepository) {
-        this.addressRepository = addressRepository;
-    }
-
-    @Override
-    public void saveAddress(String address, String city, String zip) {
-        Address addres = new Address(address, city, zip);
-        addressRepository.save(addres);
+    public void saveAddress(Address address) {
+        addressRepository.save(address);
     }
 
 }

@@ -40,4 +40,14 @@ public class ProductController {
 
         return "";
     }
+    @GetMapping("/user/customer_signup")
+    public String customerSignup() {
+
+        return "signup";
+    }
+    @GetMapping("/user/customer_login")
+    public String customerLogin() {
+
+        return "login";
+    }
 }

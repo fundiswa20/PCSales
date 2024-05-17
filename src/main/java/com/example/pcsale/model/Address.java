@@ -22,9 +22,15 @@ public class Address {
     @Column(name = "zip")
     private String zip;
 
-    public Address(String address, String city, String zip) {
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "address")
+    private Customer customer;
+
+    public Address(String address, String city, String zip, Customer customer) {
         this.address = address;
         this.city = city;
         this.zip = zip;
+        this.customer = customer;
     }
+
+    
 }

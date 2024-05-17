@@ -19,7 +19,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public void processPayment(String cardNumber, String expiration, String cvc) {
-        Card card = new Card(cardNumber, expiration, cvc);
+        Card card = new Card(cardNumber, expiration, cvc, null);
         cardRepository.save(card);
     }
 

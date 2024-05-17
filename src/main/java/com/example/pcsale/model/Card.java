@@ -19,9 +19,15 @@ public class Card {
     @Column(name = "cvc")
     private String cvc;
 
-    public Card(String cardNumber, String expiration, String cvc) {
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "card")
+    private Customer customer;
+
+    public Card(String cardNumber, String expiration, String cvc, Customer customer) {
         this.cardNumber = cardNumber;
         this.expiration = expiration;
         this.cvc = cvc;
+        this.customer = customer;
     }
+
+    
 }

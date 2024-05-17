@@ -1,96 +1,185 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <style>
-        * {
+  <head>
+   <!-- <style>
+        *{
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        
-        .navbar-brand {
+        .navbar-brand{
             font-size: 2rem;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             color: balck;
+
         }
-        
-        .navbar-brand:hover {
+        .navbar-brand:hover{
             color: black;
+
         }
-        
-        .nav-link {
+        .nav-link{
             margin-right: 10px;
             margin-left: 10px;
             color: black;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             text-transform: uppercase;
+            
+
         }
-        
-        .nav-link:hover {
+        .nav-link:hover{
             color: black;
         }
-        
-        .search {
+        .search{
             height: 40px;
             width: 80%;
             border-radius: 60px;
-            outline: none;
+            outline:none;
             margin-right: -35px;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             border: 2px solid green;
+
         }
-        
-        .btn0 {
+        .btn0{
             height: 40px;
             width: 40%;
             outline: none;
-            border: none;
+            border:none;
             background-color: green;
             color: white;
-            border-radius: 60px;
+            border-radius:60px ;
             font-weight: 700;
-        }
-        
-        .main {
-            /*background : url(C:\Users\User\Documents\CheckoutWebsite.laptops.jpeg)no-repeat;*/
-            background-size: cover;
-            height: 100vh;
-            background-position: 50% 50%;
-            width: 100%;
-        }
 
-        .main h1 {
-            font-size: 4rem;
-            font-weight: 700;
+
         }
-        .btn1 {
-            height: 45px;
-            width: 35px;
-            border: none;
-            outline: none;
-            background-color: green;
-            font-weight: 700;
-            color: white;
-            border-radius: 60px;
-        }
-    </style>
+        .main{ 
+        height: 100vh;
+        background-position: 50% 50%;
+        width: 100%;
+
+        
+    }
+    .main h1{font-size: 4rem;
+        font-weight: 700;
+        
+    }
+   .btn1{
+    height: 50px;
+    width: 75px;
+    border: none;
+    outline: none;
+    background-color: green;
+    font-weight: 700;
+    color: white;
+    border-radius: 60px;
+
+} 
+    #landing-page{
+        background-image: url('./nordwood-themes-kRNZiGKtz48-unsplash.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    </style> -->
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+{% comment %}
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .navbar-brand {
+                font-size: 2rem;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                color: black;
+            }
+            .navbar-brand:hover {
+                color: black;
+            }
+            .nav-link {
+                margin-right: 10px;
+                margin-left: 10px;
+                color: black;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                text-transform: uppercase;
+            }
+            .nav-link:hover {
+                color: black;
+            }
+            .search {
+                height: 40px;
+                width: 80%;
+                border-radius: 60px;
+                outline: none;
+                margin-right: -35px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                border: 2px solid green;
+            }
+            .btn0 {
+                height: 40px;
+                width: 40%;
+                outline: none;
+                border: none;
+                background-color: green;
+                color: white;
+                border-radius: 60px;
+                font-weight: 700;
+            }
+            .main {
+                height: 100vh;
+                background-position: 50% 50%;
+                width: 100%;
+            }
+            .main h1 {
+                font-size: 4rem;
+                font-weight: 700;
+            }
+            .btn1 {
+                height: 50px;
+                width: 75px;
+                border: none;
+                outline: none;
+                background-color: green;
+                font-weight: 700;
+                color: white;
+                border-radius: 60px;
+            }
+            #landing-page {
+                background-image: url('./nordwood-themes-kRNZiGKtz48-unsplash.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+{% endcomment %}
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <!--css link -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg pt-5" style="display: flex; justify-content: space-between; align-items: center;">
             <a class="navbar-brand" href="">PCs SALE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto mb-2 mb-lg-0">
 
@@ -99,66 +188,65 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/user/shop}">Shop</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" th:href="@{/user/customer_serv}">Customer Service</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/user/customer_login}">Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" th:href="@{/user/customer_signup}">Sign-Up</a>
+                      </li>
+                      <li>
+                        <i class="bi bi-person-circle"></i>
+                      </li>
 
                 </ul>
             </div>
-        </div>
-    </nav>
+      </nav>
+    </div>
 
     <section class="main">
-
-        <div class="container py-5">
-            <div class="row py-5">
-                <div class="col-lg-7 pt-5 text-center">
-                    <h1 class="pt-5">Business Or School Laptops</h1>
-                    <button class="btn1 mt-3">Shop</button>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="carousel-item">
-            <img src="laptops.jpg" class="d-block w-100" alt="phone">
-            <div class="carousel-caption d-none d-md-block">
-
-
-            </div>
+      <div class="container-fluid m-0 p-0 py-5">
+          <div class="carousel-inner" id="landing-page" >
+              <div class="col-8 pt-5 text-left">
+                  <h1 class="pt-5" style="font-size: 75px;">Business Or School <br> Laptops</h1>
+                  <button class="btn1 mt-3" style="width: 150px; font-size: 24px;">Shop</button>
+              </div>
+          </div>
+      </div>
     </section>
 
-    <section class="new">
-        <div class="contain">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="" alt="">
-
-                        </div>
-                        <div class="col-lg-4">
-
-                        </div>
-                        <div class="col-lg-4">
-
-                        </div>
-
-
-                    </div>
+    <section class="Details">
+        <div class="container ">
+            <div class="py-5 " style="display: flex; justify-content: center; align-items: center;">
+                <div class="col-lg-5 auto text-center" style="display: flex; flex-direction: column; justify-content: space-evenly; min-height: 250px;">
+                    <h3>PCS SALES</h3>
+                    <h6>pcsales0@gmail.com</h6>
+                        <h6>@2021 by PCS SALE(SOUTH AFRICA (PTY) LTD)</h6>
                 </div>
-            </div>
+          </div>
         </div>
-        </div>
-
     </section>
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+   

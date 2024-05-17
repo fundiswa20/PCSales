@@ -8,13 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.pcsale.dto.ProductDTO;
+import com.example.pcsale.model.Customer;
 import com.example.pcsale.model.Laptop;
+import com.example.pcsale.repository.CustomerRepository;
 import com.example.pcsale.repository.LapTopRepository;
 
 @Service
 public class CustomerService {
    @Autowired
     private LapTopRepository laptopRepo;
+    @Autowired
+    private CustomerRepository customerRepo;
 
     public List<ProductDTO> getProduct(String brand)
     {
@@ -28,6 +32,16 @@ public class CustomerService {
             }
         }
         return productDTOs;
+    }
+
+    public void addCustomer(Customer customer)
+    {
+        customerRepo.save(customer);
+    }
+
+    public Customer findByUsername(String username) {
+        //Customer customer = customerRepository.findByUsername(username);
+        return null;
     }
 
 }
