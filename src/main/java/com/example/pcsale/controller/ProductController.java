@@ -50,4 +50,21 @@ public class ProductController {
 
         return "login";
     }
+
+    @GetMapping("/user/add_to_cart")
+    public String addToCart() {
+
+        return "cart";
+    }
+    @GetMapping("/user/checkout")
+    public String checkoutPage() {
+
+        return "checkout";
+    }
+    @GetMapping("/user/confirm_pay")
+    public String confirmPayment() {
+
+        return "payment_result";
+    }
+
 }

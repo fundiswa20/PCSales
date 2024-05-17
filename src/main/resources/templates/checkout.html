@@ -28,7 +28,7 @@
             </form>
         </div>
         <h2>Card Details</h2>
-        <form action="paymentResult.html" method="post">
+        <form th:action="@{/user/confirm_pay}" method="post">
             <div class="form-group mt-4">
                 <label for="cardNumber">Card Number</label>
                 <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Enter card number">

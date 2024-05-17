@@ -50,7 +50,7 @@
                     <p class="card-text" th:text="${laptop.additionalFeatures}"></p>
                     <p class="card-text" th:text="${laptop.condition}"></p>
                     <p class="card-text" th:text="${laptop.price}">R</p>
-                    <a href="#" class="btn btn-primary">Add to cart</a>
+                    <a th:href="@{/user/add_to_cart}" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
