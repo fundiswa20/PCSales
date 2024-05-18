@@ -1,80 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        .navbar-brand{
-            font-size: 2rem;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            color: balck;
-
-        }
-        .navbar-brand:hover{
-            color: black;
-
-        }
-        .nav-link{
-            margin-right: 10px;
-            margin-left: 10px;
-            color: black;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            text-transform: uppercase;
-            
-
-        }
-        .nav-link:hover{
-            color: black;
-        }
-        .search{
-            height: 40px;
-            width: 80%;
-            border-radius: 60px;
-            outline:none;
-            margin-right: -35px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            border: 2px solid green;
-
-        }
-        .btn0{
-            height: 40px;
-            width: 40%;
-            outline: none;
-            border:none;
-            background-color: green;
-            color: white;
-            border-radius:60px ;
-            font-weight: 700;
-
-
-        }
-        .main{
-        /*background : url(C:\Users\User\Documents\CheckoutWebsite.laptops.jpeg)no-repeat;*/
-        background-size:cover;
-        height: 100vh;
-        background-position: 50% 50%;
-        width: 100%;
-
-    }
-    .main h1{font-size: 4rem;
-        font-weight: 700;
-    }
-   .btn1{
-    height: 45px;
-    width: 35px;
-    border: none;
-    outline: none;
-    background-color: green;
-    font-weight: 700;
-    color: white;
-    border-radius: 60px;
-
-}
-
-    </style>
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Home Page</title>
@@ -82,47 +9,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+    <header class="container-fluid bg-dark">
+      <div class="container d-flex flex-wrap align-items-center justify-content-between py-3">
+        <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto text-decoration-none">
+          <h1 class="fs-4 text-light">PCS SALE</h1>
+        </a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a th:href="@{/admin/home}" class="nav-link text-light" >HOME</a>
+          </li>
+          
+          <li class="nav-item">
+            <a cl class="nav-link text-light" th:href="@{/admin/add_product}">ADD STOCK</a>
+          </li>
 
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-          <a class="navbar-brand" href="#">PCs SALE</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active"  th:href="@{/admin/home}">Home</a>
-              </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" th:href="@{/admin/view_order}">VIEW ORDERS</a>
+          </li>
 
-              <li class="nav-item">
-                <a class="nav-link" th:href="@{/admin/add_product}">Add Stock</a>
-              </li>
+          <li class="nav-item">
+            <a class="nav-link text-light"th:href="@{/admin/view_products}">VIEW AVAILABLE STOCK</a>
+          </li>
+        </ul>
+      </div>
+    </header>
 
-              <li class="nav-item">
-                <a class="nav-link" th:href="@{/admin/view_order}">View Orders</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" th:href="@{/admin/view_products}">View available stock</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" th:href="@{/admin/service}">Customer Service</a>
-              </li>
-
-            </li>
-            
-            </ul>
-
-          </div>
-        </div>
-      </nav>
-    
       <section class="main">
 
         <h1>Stock List</h1>
-    <table border="1">
+    <table border="1" style="100%">
         <thead>
             <tr>
                 <th class="p-2">Brand</th>

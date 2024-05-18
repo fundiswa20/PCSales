@@ -11,31 +11,19 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-            <a class="navbar-brand" href="#">PCs SALE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+    <header class="container-fluid bg-dark">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between py-3">
+          <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto text-decoration-none">
+            <h1 class="fs-4 text-light">PCS SALE</h1>
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a th:href="@{/user/home}" class="nav-link text-light" >HOME</a></li>
+        <li class="nav-item"><a  th:href="@{/user/shop}" class="nav-link text-light">SHOP</a></li>
+        <li class="nav-item"><a th:href="@{/user/cart(id=${userid})}" class="btn btn-primary btn-block">View Cart</a>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/user/home}">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/user/shop}">Shop</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/user/customer_serv}">Customer Service</a>
-                    </li>
-
-                </ul>
-            </div>
+          </ul>
         </div>
-    </nav>
+      </header>
     <section  class="main">
         <h4>Available Laptops</h4>
         <div class="row">
@@ -50,7 +38,7 @@
                     <p class="card-text" th:text="${laptop.additionalFeatures}"></p>
                     <p class="card-text" th:text="${laptop.condition}"></p>
                     <p class="card-text" th:text="${laptop.price}">R</p>
-                    <a th:href="@{/user/add_to_cart}" class="btn btn-primary">Add to cart</a>
+                    <a th:href="@{/user/add_to_cart(id=${laptop.id})}" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ package com.example.pcsale.model;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -10,7 +11,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -22,12 +23,15 @@ public class Cart {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "cart")
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Laptop> products;
     private Double total;
     private Long numberOfItems;
 
     public Cart() {
+        this.products = new ArrayList<>();
+        this.total =0.0;
+        this.numberOfItems=0L;
     }
 
     public Cart(Customer customer, List<Laptop> products, Double total, Long numberOfItems) {

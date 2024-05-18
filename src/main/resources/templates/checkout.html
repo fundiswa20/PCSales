@@ -5,33 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-5 mb-4">Checkout</h1>
-        
-        <div id="address-form" class="mt-4">
-            <h2>Enter Your Address</h2>
-            <form>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Enter your address">
-                </div>
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" placeholder="Enter your city">
-                </div>
-                <div class="form-group">
-                    <label for="zip">ZIP Code</label>
-                    <input type="text" class="form-control" id="zip" placeholder="Enter your ZIP code">
-                </div>
-            </form>
+    <header class="container-fluid bg-dark">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between py-3">
+          <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto text-decoration-none">
+            <h1 class="fs-4 text-light">PCS SALE</h1>
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a th:href="@{/user/home}" class="nav-link text-light" >HOME</a></li>
+            <li class="nav-item"><a  th:href="@{/user/shop}" class="nav-link text-light">SHOP</a></li>
+            <li class="nav-item"><a th:href="@{/user/cart(id=${userid})}" class="btn btn-primary btn-block">View Cart</a>
+            </li>
+          </ul>
         </div>
+      </header>
+
+
+      <div class="container">
+        <h1 class="mt-5 mb-4">Checkout</h1>
+
         <h2>Card Details</h2>
-        <form th:action="@{/user/confirm_pay}" method="post">
+        <form th:action="@{/user/checkout}" th:object="${checkoutForm}" method="post">
             <div class="form-group mt-4">
                 <label for="cardNumber">Card Number</label>
-                <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="Enter card number">
+                <input type="text" class="form-control" id="cardNumber" name ="cardNumber" placeholder="Enter card number">
             </div>
             <div class="form-group">
                 <label for="expiration">Expiration Date</label>
@@ -43,8 +42,12 @@
             </div>
             <button type="submit" class="btn btn-primary btn-block">Submit Payment</button>
         </form>
+
+        <div th:if="${error}" class="alert alert-danger mt-3" th:text="${error}"></div>
+        <div th:if="${message}" class="alert alert-success mt-3" th:text="${message}"></div>
     </div>
-    
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

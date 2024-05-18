@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.pcsale.dto.CartDTO;
 import com.example.pcsale.dto.ProductDTO;
 import com.example.pcsale.model.Cart;
 import com.example.pcsale.model.Customer;
@@ -38,6 +39,22 @@ public class CustomerService {
         }
         return productDTOs;
     }
+    // Method to get cart details
+    public CartDTO getCartDetails(Long id) {
+        Cart cart = customerRepo.findById(id).get().getCart();
+        List<Laptop> list = cart.getProducts();
+
+        CartDTO cartDTO = new CartDTO();
+        cartDTO.setNumberOfItems(cart.getNumberOfItems().toString());
+        cartDTO.setTotal(cart.getTotal().toString());
+
+        for (Laptop l : list) {
+            cartDTO.getProducts().add(new ProductDTO(l.getBrand(), l.getName(), l.getPrice().toString()));
+        }
+
+        return cartDTO;
+    }
+
 
     public void addCustomer(Customer customer)
     {
@@ -60,12 +77,26 @@ public class CustomerService {
         //Customer customer = customerRepository.findByUsername(username);
         return false;
     }
+        public Long getUserID(String username) {
+            Customer cust = customerRepo.findByUsername(username);
 
-    public Cart addToCart(String brand,String name)
-    {
-        Cart cart = cartRepo.findById(1L).orElse(new Cart());
+            return cust.getId();
+        }
 
-        return null;
-    }
+        public void addToCart(Long id, Long product_id) {
+            Laptop product = laptopRepo.findById(product_id).get();
+
+            Cart cart = customerRepo.findById(id).get().getCart();
+
+            List<Laptop> list = cart.getProducts();
+
+            list.add(product);
+
+            cart.setProducts(list);
+            cart.setTotal(cart.getTotal() + product.getPrice());
+            cart.setNumberOfItems(cart.getNumberOfItems() + 1);
+
+            cartRepo.save(cart);
+        }
 
 }

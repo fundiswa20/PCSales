@@ -30,18 +30,13 @@ public class Customer implements Serializable{
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id")
     private Card card;
-
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "address")
-    private Address address;
-
     public Customer() {
     }
 
 
 
     public Customer(String name, String surname, String idNumber, String username, String password, Cart cart,
-            Card card, Address address) {
+            Card card) {
         this.name = name;
         this.surname = surname;
         this.idNumber = idNumber;
@@ -49,7 +44,7 @@ public class Customer implements Serializable{
         this.password = password;
         this.cart = cart;
         this.card = card;
-        this.address = address;
+
     }
 
 
@@ -62,13 +57,7 @@ public class Customer implements Serializable{
         this.card = card;
     }
 
-    public Address getAddress() {
-        return address;
-    }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
     public Long getId() {
         return id;

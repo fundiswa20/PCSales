@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <header class="container-fluid bg-dark">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between py-3">
+          <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto text-decoration-none">
+            <h1 class="fs-4 text-light">PCS SALE</h1>
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a th:href="@{/user/home}" class="nav-link text-light" >HOME</a></li>
+            <li class="nav-item"><a  th:href="@{/user/shop}" class="nav-link text-light">SHOP</a></li>
+            <li class="nav-item"><a th:href="@{/user/cart(id=${userid})}" class="btn btn-primary btn-block">View Cart</a>
+            </li>
+          </ul>
+        </div>
+      </header>
     <div class="container">
         <h1 class="mt-5 mb-4">Payment Result</h1>
-
-            <div class="alert alert-success" role="alert">
-                <i class="fas fa-check-circle mr-2"></i> Payment Accepted! Thank you for your purchase.
-            </div>
 
     </div>
 

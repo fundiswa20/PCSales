@@ -9,6 +9,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="container-fluid bg-dark">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between py-3">
+      <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto text-decoration-none">
+        <h1 class="fs-4 text-light">PCS SALE</h1>
+      </a>
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a th:href="@{/user/home_p}" class="nav-link text-light" >HOME</a></li>
+        <li class="nav-item"><a  th:href="@{/user/shop}" class="nav-link text-light">SHOP</a></li>
+
+      </ul>
+    </div>
+  </header>
   <div class="container">
     <h1 class="mt-5 mb-4">Your Cart</h1>
 
@@ -17,41 +29,29 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Product</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Total</th>
+              <th scope="col">Price(R)</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Asus NoteBook</td>
-              <td>R4000</td>
-              <td>1</td>
-              <td>R4000</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Dell NoteBook</td>
-              <td>R4500</td>
-              <td>1</td>
-              <td>R4500</td>
-            </tr>
+              <tr th:each="product: ${cartDTO.products}">
+                  <td th:text="${product.brand} + ' ' + ${product.name}"></td>
+                  <td th:text="${product.price}"></td>
+              </tr>
           </tbody>
         </table>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Total</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Items in Cart: 2</h6>
-            <p class="card-text">Total Price: R9500</p>
-            <a th:href="@{/user/checkout}" class="btn btn-primary btn-block">Proceed to Checkout</a>
-          </div>
+            <div class="card-body">
+                <h5 class="card-title">Total</h5>
+                <h6 class="card-subtitle mb-2 text-muted" th:text="'Items in Cart: ' + ${cartDTO.numberOfItems}"></h6>
+                <p class="card-text" th:text="'Total Price: R' + ${cartDTO.total}">T</p>
+                <a th:href="@{/user/checkout}" class="btn btn-primary btn-block">Proceed to Checkout</a>
+            </div>
         </div>
-      </div>
+    </div>
+
     </div>
   </div>
 

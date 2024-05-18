@@ -20,4 +20,11 @@ public class ProductDTO implements Serializable {
     private String condition;
     private String price;
     private String image;
+
+    public ProductDTO(String brand, String name, String price) {
+        this.brand = brand;
+        this.name = name;
+        this.price = price;
+    }
 }
+
