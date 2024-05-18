@@ -1,6 +1,8 @@
 package com.example.pcsale.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import com.example.pcsale.bl.CustomerService;
 import com.example.pcsale.model.Card;
 import com.example.pcsale.model.Cart;
 import com.example.pcsale.model.Customer;
+
 
 import jakarta.servlet.http.HttpSession;
 
@@ -52,6 +55,7 @@ public class CustomerController implements Serializable{
         Card card = new Card();
 
         Cart cart = new Cart();
+
 
         Customer customer = new Customer(name,surname,id,username,password,cart,card);
         cs.addCustomer(customer);

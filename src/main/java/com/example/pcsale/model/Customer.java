@@ -1,6 +1,7 @@
 package com.example.pcsale.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -23,17 +25,17 @@ public class Customer implements Serializable{
     private String username;
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id")
     private Card card;
-    public Customer() {
-    }
 
 
+
+    public Customer() {}
 
     public Customer(String name, String surname, String idNumber, String username, String password, Cart cart,
             Card card) {
@@ -47,8 +49,6 @@ public class Customer implements Serializable{
 
     }
 
-
-
     public Card getCard() {
         return card;
     }
@@ -56,8 +56,6 @@ public class Customer implements Serializable{
     public void setCard(Card card) {
         this.card = card;
     }
-
-
 
     public Long getId() {
         return id;
@@ -107,17 +105,12 @@ public class Customer implements Serializable{
         this.password = password;
     }
 
-
-
     public Cart getCart() {
         return cart;
     }
 
-
-
     public void setCart(Cart cart) {
         this.cart = cart;
     }
-
 
 }

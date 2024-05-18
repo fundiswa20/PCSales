@@ -7,8 +7,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.pcsale.dto.CartDTO;
 import com.example.pcsale.dto.LaptopDTO;
+import com.example.pcsale.dto.ProductDTO;
+import com.example.pcsale.model.Cart;
 import com.example.pcsale.model.Laptop;
+import com.example.pcsale.repository.CartRepository;
 import com.example.pcsale.repository.LapTopRepository;
 
 @Service
@@ -16,6 +20,8 @@ public class AdminService {
 
     @Autowired
     private LapTopRepository laptopRepo;
+    @Autowired
+    private CartRepository cartRepo;
 
     public void addLaptop(Laptop laptop) {
 
@@ -31,4 +37,5 @@ public class AdminService {
         }
        return laptopDTOs;
     }
+
 }

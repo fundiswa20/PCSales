@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import com.example.pcsale.bl.AdminService;
+import com.example.pcsale.dto.CartDTO;
 import com.example.pcsale.dto.LaptopDTO;
 import com.example.pcsale.model.Laptop;
 
@@ -20,6 +21,7 @@ import com.example.pcsale.model.Laptop;
 public class AdminController {
     @Autowired
     private AdminService as;
+    
 
     @GetMapping("/admin/home")
     public String homeRequest()
@@ -57,12 +59,6 @@ public class AdminController {
         as.addLaptop(laptop);
         return "add_stock"; // Or whatever view you want to return
     }
-
-    @GetMapping("/admin/view_order")
-    public String viewOrders()
-    {
-        return "view_orders";
-    }
     @GetMapping("/admin/view_products")
     public String viewStock(Model model)
     {
@@ -74,9 +70,7 @@ public class AdminController {
         }
         return "view_stock";
     }
-    @GetMapping("/admin/service")
-    public String customerService()
-    {
-        return "customer_service";
-    }
+
+
+
 }
