@@ -45,7 +45,7 @@ public class CheckoutController {
 
         CheckoutFormDTO checkoutForm = new CheckoutFormDTO(cardNumber, expiration, cvv);
         // Process the payment using the PaymentService
-        boolean paymentSuccessful = paymentService.processPayment(checkoutForm);
+        boolean paymentSuccessful = paymentService.processPayment(checkoutForm,userId);
 
         if (paymentSuccessful) {
             // Clear the user's cart or update the order status

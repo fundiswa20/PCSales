@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.pcsale.dto.CheckoutFormDTO;
 import com.example.pcsale.model.Card;
+import com.example.pcsale.model.Cart;
 import com.example.pcsale.repository.CardRepository;
+import com.example.pcsale.repository.CustomerRepository;
 
 @Service
 
@@ -16,10 +18,13 @@ public class PaymentService  {
     @Autowired
     CardRepository cardRepo;
 
-    public boolean processPayment(CheckoutFormDTO checkoutForm) {
+    @Autowired
+    CustomerRepository customerRepo;
+
+    public boolean processPayment(CheckoutFormDTO checkoutForm,Long userId) {
         // Simulate payment processing logic
         // In a real-world scenario, integrate with a payment gateway here
-
+        Card card = customerRepo.findById(userId).get().getCard();
         String cardNumber = checkoutForm.getCardNumber();
         String expiration = checkoutForm.getExpiration();
         String cvv = checkoutForm.getCvv();
@@ -27,7 +32,6 @@ public class PaymentService  {
         // Placeholder logic to simulate a payment process
         if (isCardNumberValid(cardNumber) && isExpirationValid(expiration) && isCvvValid(cvv)) {
 
-            Card card = new Card();
             card.setCardNumber(cardNumber);
             card.setExpiration(expiration);
             card.setCvc(cvv);
