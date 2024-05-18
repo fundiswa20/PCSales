@@ -2,6 +2,7 @@ package com.example.pcsale.bl;
 
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.pcsale.dto.CheckoutFormDTO;
@@ -11,6 +12,9 @@ import com.example.pcsale.repository.CardRepository;
 @Service
 
 public class PaymentService  {
+
+    @Autowired
+    CardRepository cardRepo;
 
     public boolean processPayment(CheckoutFormDTO checkoutForm) {
         // Simulate payment processing logic
@@ -22,6 +26,12 @@ public class PaymentService  {
 
         // Placeholder logic to simulate a payment process
         if (isCardNumberValid(cardNumber) && isExpirationValid(expiration) && isCvvValid(cvv)) {
+
+            Card card = new Card();
+            card.setCardNumber(cardNumber);
+            card.setExpiration(expiration);
+            card.setCvc(cvv);
+            cardRepo.save(card);
             // Assume payment is successful
             return true;
         } else {
@@ -32,7 +42,7 @@ public class PaymentService  {
 
     private boolean isCardNumberValid(String cardNumber) {
         // Implement basic validation for card number
-        return cardNumber != null && cardNumber.length() == 16 && cardNumber.matches("\\d+");
+        return cardNumber != null && cardNumber.length() == 16;
     }
 
     private boolean isExpirationValid(String expiration) {
@@ -42,7 +52,7 @@ public class PaymentService  {
 
     private boolean isCvvValid(String cvv) {
         // Implement basic validation for CVV
-        return cvv != null && cvv.length() == 3 && cvv.matches("\\d+");
+        return cvv != null && cvv.length() == 3;
     }
 
 }

@@ -50,13 +50,14 @@ public class CheckoutController {
         if (paymentSuccessful) {
             // Clear the user's cart or update the order status
             clearCart(userId);
-
             // Add a success message
             model.addAttribute("message", "Payment successful. Thank you for your purchase!");
-            return "paymentResult"; // Create a success page template
+            System.out.println("Payment successful. Thank you for your purchase!");
+            return "checkout"; // Create a success page template
         } else {
             // Add an error message
             model.addAttribute("error", "Payment failed. Please try again.");
+            System.out.println("Payment failed. Please try again.");
             return "checkout"; // Redirect back to the checkout page with an error message
         }
     }
