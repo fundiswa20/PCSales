@@ -36,11 +36,14 @@ public class CheckoutController {
     @PostMapping("/user/checkout")
     public String handleCheckout(
             @SessionAttribute("userid") Long userId,
-            @RequestParam("cardNumber") 
-            CheckoutFormDTO checkoutForm,
+            @RequestParam("cardNumber") String cardNumber,
+            @RequestParam("expiration") String expiration,
+            @RequestParam("cvv") String cvv,
             Model model,
             HttpSession session
     ) {
+
+        CheckoutFormDTO checkoutForm = new CheckoutFormDTO(cardNumber, expiration, cvv);
         // Process the payment using the PaymentService
         boolean paymentSuccessful = paymentService.processPayment(checkoutForm);
 
