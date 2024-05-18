@@ -1,14 +1,18 @@
 package com.example.pcsale.controller;
 
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
+import com.example.pcsale.bl.CustomerService;
 import com.example.pcsale.bl.PaymentService;
 import com.example.pcsale.dto.CheckoutFormDTO;
 import com.example.pcsale.model.Cart;
@@ -26,6 +30,9 @@ public class CheckoutController {
     private CartRepository cartRepo;
     @Autowired
     private PaymentService paymentService;
+
+    @Autowired
+    private CustomerService customerService;
 
     @GetMapping("/user/checkout")
     public String showCheckoutPage(Model model) {
@@ -48,6 +55,14 @@ public class CheckoutController {
         boolean paymentSuccessful = paymentService.processPayment(checkoutForm,userId);
 
         if (paymentSuccessful) {
+            //  // Save cart items to a text file before clearing the cart
+            //  try {
+            //     saveCartItemsToFile(userId);
+            // } catch (IOException e) {
+            //     model.addAttribute("error", "Error saving cart items. Please try again.");
+            //     System.out.println("Error saving cart items. Please try again.");
+            //     return "checkout";
+            // }
             // Clear the user's cart or update the order status
             clearCart(userId);
             // Add a success message
@@ -62,7 +77,15 @@ public class CheckoutController {
         }
     }
 
-
+    // private void saveCartItemsToFile(Long userId) throws IOException {
+    //     List<Cart> cartItems = customerService.getCartItemsByUserId(userId);
+    //     try (BufferedWriter writer = new BufferedWriter(new FileWriter("cart_items" + userId + ".txt"))) {
+    //         for (Cart item : cartItems) {
+    //             writer.write(item.toString());
+    //             writer.newLine();
+    //         }
+    //     }
+    // }
 
     private void clearCart(Long userId) {
         // Implement your logic to clear the user's cart after successful payment

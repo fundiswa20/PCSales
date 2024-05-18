@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.pcsale.dto.CheckoutFormDTO;
 import com.example.pcsale.model.Card;
-import com.example.pcsale.model.Cart;
 import com.example.pcsale.repository.CardRepository;
 import com.example.pcsale.repository.CustomerRepository;
 

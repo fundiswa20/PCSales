@@ -98,5 +98,8 @@ public class CustomerService {
 
             cartRepo.save(cart);
         }
+        // public List<Cart> getCartItemsByUserId(Long userId) {
+        //     return cartRepo.findByUserId(userId);
+        // }
 
 }
